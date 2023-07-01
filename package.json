@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc --build",
+    "postinstall": "npm run build && node ./deploymentScripts/webConfigPrep.js",
+    "start": "tsc --build && node ./dist/src/index.js",
     "test": "jest",
     "lint-staged": "lint-staged",
     "prepare": "husky install"
@@ -16,15 +19,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YuriWitney/Ignite-chapter-two.git"
+    "url": "git+https://github.com/YuriWitney/node-ai-bot.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/YuriWitney/Ignite-chapter-two/issues"
+    "url": "https://github.com/YuriWitney/node-ai-bot/issues"
   },
-  "homepage": "https://github.com/YuriWitney/Ignite-chapter-two#readme",
+  "homepage": "https://github.com/YuriWitney/node-ai-bot#readme",
+  "dependencies": {
+    "botbuilder": "^4.17.0",
+    "botbuilder-dialogs": "^4.17.0",
+    "botbuilder-testing": "^4.13.3",
+    "dotenv": "^8.2.0",
+    "replace": "~1.2.0",
+    "restify": "~8.6.0"
+  },
   "devDependencies": {
     "@types/jest": "^29.1.2",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
