@@ -7,7 +7,8 @@
     "build": "tsc --build",
     "postinstall": "npm run build && node ./deploymentScripts/webConfigPrep.js",
     "start": "tsc --build && node ./dist/src/index.js",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
+    "test:staged": "npm run test --findRelatedTests",
     "lint-staged": "lint-staged",
     "prepare": "husky install"
   },

@@ -1,21 +1,20 @@
-/*
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
 module.exports = {
-  collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.ts'
+    '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/**/*.spec.ts',
+    '!<rootDir>/src/index.ts',
+    '!<rootDir>/src/bots/*.ts'
   ],
   coverageDirectory: 'coverage',
-  // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  moduleNameMapper: {
+    '@/(.+)': '<rootDir>/src/$1'
+  },
+  testMatch: ['**/*.spec.ts'],
   roots: [
-    '<rootDir>'
+    '<rootDir>/src'
   ],
-
   transform: {
-    '.+\\.ts$': 'ts-jest'
-  }
+    '\\.ts$': 'ts-jest'
+  },
+  clearMocks: true
 }
